@@ -1,20 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import BrandIntro from './src/components/BrandIntro';
+import HomeScreen from './src/screens/HomeScreen';
 
 export default function App() {
+  const [showHome, setShowHome] = useState(false);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <StatusBar style="dark" backgroundColor="#FFFFFF" />
+      {showHome ? <HomeScreen /> : <BrandIntro onComplete={() => setShowHome(true)} />}
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
