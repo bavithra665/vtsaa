@@ -44,4 +44,4 @@ yarn-error.*
 /android
 
 # Java build output
-backend/target/
+**/target/
